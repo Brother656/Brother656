@@ -100,19 +100,43 @@
       margin-bottom: 15px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: var(--accent);
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
+ /* Bouton stylé avec effet flash */
+.btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  padding: 12px 25px;
+  background: var(--accent);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
 
-    .btn:hover {
-      background: #b00610;
-    }
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: all 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background: #b00610;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.7);
+  transform: translateY(-2px);
+}
+
 
     /* Hero */
     #home {
@@ -641,6 +665,7 @@ Si vous recherchez une collaboration créative, rigoureuse et inspirée, vous ê
 </body>
 
 </html>
+
 
 
 
