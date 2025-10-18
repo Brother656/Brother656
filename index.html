@@ -186,23 +186,108 @@
     }
 
     /* Contact */
-form {
-  margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 500px;
-    }
+/* 🎨 Style moderne du formulaire */
+.contact-form {
+  background: linear-gradient(145deg, #1b1b1b, #111);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+  max-width: 500px;
+  width: 90%;
+  margin: 30px auto;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
 
-    input, textarea {
-      margin: 0px;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background: #2a2a2a;
-      color: white;
-    }
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, var(--accent), transparent, transparent, var(--accent));
+  animation: rotateBorder 4s linear infinite;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+@keyframes rotateBorder {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.contact-form * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Champs du formulaire */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 10px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+  background: #2a2a2a;
+}
+
+/* Bouton d’envoi */
+.contact-form button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: all 0.5s;
+}
+
+.contact-form button:hover::before {
+  left: 100%;
+}
+
+.contact-form button:hover {
+  background: #b00610;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
 
 
     footer {
@@ -556,6 +641,7 @@ Si vous recherchez une collaboration créative, rigoureuse et inspirée, vous ê
 </body>
 
 </html>
+
 
 
 
